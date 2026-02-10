@@ -41,6 +41,7 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
     "action" : "balance-enquiry",
     "account_number" : "500007903387"
 }'
+```
 
 ## Actions
 
