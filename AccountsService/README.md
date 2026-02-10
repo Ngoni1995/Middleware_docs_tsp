@@ -58,7 +58,7 @@ The Accounts Service supports multiple actions that can be invoked through the A
 
 ### 1. Balance Enquiry
 
-Retrieve the current available balance for a specific account.
+This action retrieves the current available balance for a specified account. The endpoint consistently returns an HTTP 200 OK response. For invalid accounts, the balance will be returned as 0.
 
 #### Request
 
@@ -75,3 +75,15 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
    "action" : "balance-enquiry",
    "account_number" : "500007903387"
 }'
+
+#### Response
+
+```json
+{
+    "request_id": "8456542f-e715-4777-b545-e6805a36e31e",
+    "action": "balance-enquiry",
+    "available_balance": 1865.07,
+    "success": true,
+    "message": "SUCCESS"
+}
+```
