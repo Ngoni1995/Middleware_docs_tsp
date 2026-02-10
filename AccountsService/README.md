@@ -1,8 +1,8 @@
-# Accounts Service API Documentation
+# 💳 Accounts Service API Documentation
 
 The **Accounts Service** handles account-related queries such as balance enquiries, account lookup, and other account operations. All requests are routed through the **Service Request API**.
 
-## Entry Point - API Gateway
+## 🚪 Entry Point - API Gateway
 
 The **API Gateway** serves as the single entry point for all requests to the Accounts Service. It handles routing, authentication, authorization, caching, and request logging before forwarding the request to the internal Accounts Service.
 
@@ -43,7 +43,7 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 }'
 ```
 
-## Actions
+## ⚡Actions
 
 The Accounts Service supports multiple actions that can be invoked through the API Gateway. Each action requires the caller to have the corresponding **permission**. All actions return JSON responses with HTTP headers that include request tracing and correlation information.
 
@@ -77,7 +77,7 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 }'
 ```
 
-#### Success Response
+#### ✅ Success Response
 
 ```json
 {
@@ -110,7 +110,7 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 }'
 ```
 
-#### Success Response
+#### ✅ Success Response
 
 ```json
 {
@@ -130,7 +130,7 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 }
 ```
 
-#### Bad Response 
+#### ❌ Bad Response 
 
 ```json
 {
