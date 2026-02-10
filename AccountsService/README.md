@@ -41,3 +41,36 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
     "action" : "balance-enquiry",
     "account_number" : "500007903387"
 }'
+
+## Actions
+
+The Accounts Service supports multiple actions that can be invoked through the API Gateway. Each action requires the caller to have the corresponding **permission**. All actions return JSON responses with HTTP headers that include request tracing and correlation information.
+
+### Permissions
+
+| Action                   | Required Permission                |
+|--------------------------|-----------------------------------|
+| `balance-enquiry`         | `accounts.balance-enquiry`         |
+| `get-account-details`     | `accounts.get-account-details`    |
+
+---
+
+### 1. Balance Enquiry
+
+Retrieve the current available balance for a specific account.
+
+#### Request
+
+```bash
+curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
+--header 'X-Request-Id: 4dc8e184-5eb3-437b-a099-e74ffc75b807' \
+--header 'X-Destination-Service: accounts' \
+--header 'X-Integration-Id: 1234' \
+--header 'X-Integration-Key: 5678' \
+--header 'X-Cache-Key: ad1' \
+--header 'Cache-Control: no-cache' \
+--header 'Content-Type: application/json' \
+--data '{
+   "action" : "balance-enquiry",
+   "account_number" : "500007903387"
+}'
