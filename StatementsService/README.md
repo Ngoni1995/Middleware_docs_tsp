@@ -1,8 +1,6 @@
 # 📄 Statements Service API Documentation
 
-The **Statements Service** provides access to account transaction statements, including historical debit and credit entries. All requests are routed through the **Service Request API**.
-
-The service supports statement retrieval for a **maximum period of three (3) months per request**. Requests exceeding this date range are not permitted. 
+The **Statements Service** provides access to account transaction statements, including historical debit and credit entries. All requests are routed through the **Service Request API**. The service supports statement retrieval for a **maximum period of three (3) months per request**. Requests exceeding this date range are not permitted. 
 
 ## 🚪 Entry Point - API Gateway
 
