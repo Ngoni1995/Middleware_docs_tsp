@@ -71,10 +71,10 @@ This action transfers funds between internal accounts within the bank.
 
 The service supports the following account combinations:
 
-- DP → DP  
-- GL → GL  
-- GL → DP  
-- DP → GL  
+- **DP → DP**  
+- **GL → GL**  
+- **GL → DP**  
+- **DP → GL**  
 
 If either the `source_account` or `destination_account` is a **GL account**, any provided `charge_codes` will be ignored.
 
