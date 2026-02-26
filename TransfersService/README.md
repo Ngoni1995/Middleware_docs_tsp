@@ -6,11 +6,11 @@ All requests are routed through the **Service Request API (API Gateway)** and re
 
 ## 🚪 Entry Point - API Gateway
 
-The **API Gateway** serves as the single entry point for all requests to the Statements Service. It handles routing, authentication, authorization, caching, and request logging before forwarding the request to the internal Statements Service.
+The **API Gateway** serves as the single entry point for all requests to the Transfers Service. It handles routing, authentication, authorization, caching, and request logging before forwarding the request to the internal Transfers Service.
 
 ### Responsibilities
 
-- **Routing:** Directs requests to the correct service (`statements`) based on the `X-Destination-Service` header.  
+- **Routing:** Directs requests to the correct service (`transfers`) based on the `X-Destination-Service` header.  
 - **Authentication & Authorization:** Validates `X-Integration-Id` and `X-Integration-Key` headers to ensure only authorized clients can access the service.  
 - **Caching:** Supports optional caching via the `X-Cache-Key` header to reduce load on internal services.  
 - **Request Logging:** Generates traceable logs using `X-Request-Id` for auditing and debugging.  
@@ -21,7 +21,7 @@ The **API Gateway** serves as the single entry point for all requests to the Sta
 | Header Name             | Description                                          |
 |-------------------------|------------------------------------------------------|
 | `X-Request-Id`          | Unique request identifier for tracing                |
-| `X-Destination-Service` | Target service (must be `statements`)                 |
+| `X-Destination-Service` | Target service (must be `transfers`)                 |
 | `X-Integration-Id`      | Client integration identifier                        |
 | `X-Integration-Key`     | Client integration key                               |
 | `X-Cache-Key`           | Optional cache key                                   |
@@ -100,6 +100,7 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
     "charge_codes": [],
     "amount": 18
 }'
+```
 
 #### ✅ Success Response
 
