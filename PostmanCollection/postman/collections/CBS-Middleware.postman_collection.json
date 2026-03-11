@@ -1,0 +1,991 @@
+{
+  "info": {
+    "_postman_id": "98bc0476-cb0e-4ea3-9463-a673e44ed17b",
+    "name": "CBS-Middleware",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Funds Transfer",
+      "item": [
+        {
+          "name": "RTGS Transfer",
+          "id": "98e018d6-3e84-457c-b2f0-36551befe5df",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "transfers",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"rtgs-transfer\",\r\n    \"source_account\" : \"500007903387\",\r\n    \"amount\": 10,\r\n    \"beneficiary_bank\" : \"ZB Bank\",\r\n    \"beneficiary_bank_swift_code\" : \"ZBBNPKPP\",\r\n    \"beneficiary_name\" : \"Malcom Chakoma\",\r\n    \"beneficiary_bank_account_number\" : \"100006735528\",\r\n    \"beneficiary_bank_reference\" : \"Econet Recharge\",\r\n    \"channel\" : \"mobile\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Internal Transfer",
+          "id": "b693bca5-e6d9-46ab-806e-1d3d8f9457be",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "transfers",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"internal-funds-transfer\",\r\n    \"description\" : \"Test Malcom\",\r\n    \"source_account\": \"500007903379\",\r\n    \"destination_account\" : \"500009432963\",\r\n    \"currency_iso_code\" : \"USD\",\r\n    \"charge_codes\" : [666],\r\n    \"amount\" : 18\r\n}\r\n",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "21b882e7-b80c-4006-89ea-ae6a81f8d93c"
+    },
+    {
+      "name": "Charges",
+      "item": [
+        {
+          "name": "Get Quotation",
+          "id": "fe278008-8c94-4719-9e6d-3f780bedc48e",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "charges",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"action\" : \"get-quotation\",\r\n   \"account_number\": \"500007903387\",\r\n   \"charge_codes\" : [666,806],\r\n   \"amount\" : 1000\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post Charge Codes",
+          "id": "edf6dfe2-6766-45a0-bb08-f8160c4d0a36",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "charges",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"action\" : \"post-charge-codes\",\r\n   \"account_number\": \"500007903387\",\r\n   \"charge_codes\" : [666,806],\r\n   \"amount\" : 1000\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "750b09a8-922f-4def-8a5b-c031d86df5fd"
+    },
+    {
+      "name": "DP Accounts",
+      "item": [
+        {
+          "name": "Balance Enquiry",
+          "id": "ab36d295-3671-4663-8d9d-b76aedfdd998",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "accounts",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"action\" : \"balance-enquiry\",\r\n   \"account_number\" : \"500007903387\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add Card",
+          "id": "3fdfb599-3101-4f11-945e-0fe1de4d5f2c",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "accounts",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"action\" : \"balance-enquiry\",\r\n   \"account_number\" : \"500007903387\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Account Details",
+          "id": "0c25ab9a-18cc-42bc-b72d-e123c26034d6",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "accounts",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "type": "text"
+              },
+              {
+                "key": "X-Request-Template",
+                "value": "template.ngoni",
+                "type": "text"
+              },
+              {
+                "key": "X-Response-Template",
+                "value": "response.x200.psc.get-account-details.json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"requestId\" : \"{{$guid}}\",\r\n    \"debtorAgent\" : \"GOV-ZIM-TREASURY\",\r\n    \"creditorAccount\" : {\r\n        \"schemeName\" : \"BBAN\",\r\n        \"identification\" : \"500007903387\"\r\n    },\r\n    \"creditorName\": \"Ryan Ben\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "824483e5-fc3c-4131-87d1-1165e0f6ad55"
+    },
+    {
+      "name": "Wallets",
+      "item": [
+        {
+          "name": "Fetch Wallet Registrations",
+          "id": "9f3b112a-377b-4d5c-8057-e98801f00357",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "wallet",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\" : \"fetch-registrations\",\r\n    \"client_id\" : 4309273\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add OneWallet Registration",
+          "id": "85a3c3ad-ea07-4668-bcc0-29d73ef07592",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "wallet",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"onewallet-registration\",\r\n    \"msisdn\" : \"263713647459\",\r\n    \"account_number\" : \"500007903379\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add EcoCash Registration",
+          "id": "7da757d7-5aa7-4d41-8a1d-e96ae67800ef",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "wallet",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"ecocash-registration\",\r\n    \"msisdn\" : \"263772533952\",\r\n    \"account_number\" : \"500007903387\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove OneWallet Registration",
+          "id": "f723a1ce-d4b7-4625-8387-e45113cb48cd",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "wallet",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\" : \"onewallet-deregistration\",\r\n    \"account_number\" : \"500005146807\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Remove EcoCash Registration",
+          "id": "2017f51f-d376-4f0b-9c24-93ba78cd6c10",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "wallet",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\" : \"ecocash-deregistration\",\r\n    \"account_number\" : \"500005146807\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "2ae31ede-3fb3-4a7e-82c5-97105edce473"
+    },
+    {
+      "name": "Administration",
+      "item": [
+        {
+          "name": "health",
+          "id": "7cc66054-48d3-42d0-be3a-b58cd577c11b",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base-url}}/api/v1/health",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "health"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "181e43ed-6e16-4840-a815-8b428f6fde94"
+    },
+    {
+      "name": "Statements",
+      "item": [
+        {
+          "name": "Get Deposit Account Statement",
+          "id": "c8e9f5e7-24eb-41b0-af09-7b605a26fe12",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "statements",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "57839954EF7293FD3F0F462233A77CA6",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "no-cache",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n   \"action\" : \"get-deposit-account-statement\",\r\n   \"account_number\": \"500002229911\",\r\n   \"from_date\" : \"2025-12-02\",\r\n   \"to_date\" : \"2025-12-05\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "b3ebbd14-6b9e-464c-b068-af92a6964662"
+    },
+    {
+      "name": "Bulk IFT",
+      "item": [
+        {
+          "name": "Submit Batch Chunk",
+          "id": "44962916-2483-427e-84fe-32510d200233",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "transfers",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"submit-batch-chunk\",\r\n    \"batch_reference\" : \"82b34573-a445\",\r\n    \"batch_transactions_count\" : 3,\r\n    \"batch_transactions_total_amount\" : 54.67,\r\n    \"chunk_transactions_count\" : 1,\r\n    \"chunk_transaction_total_amount\" : 20.35,\r\n    \"chunk_number\" : \"2/2\",\r\n\t\"iso_currency_code\": \"USD\",\r\n    \"chunk_transactions\" : [\r\n        {\r\n            \"identifier\" : \"{{$guid}}\",\r\n            \"source_account\" : \"500007903387\",\r\n            \"destination_account\" : \"500009545046\",\r\n            \"description\" : \"Test Transaction 1\",\r\n            \"currency\" : \"USD\",\r\n            \"amount\" : 20.35\r\n        }\r\n    ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Validate Batch",
+          "id": "84413734-5b60-4fb7-b921-5d43359ad158",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "transfers",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"validate-batch\",\r\n    \"batch_reference\" : \"82b34573-a445\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Post Batch",
+          "id": "950c1f00-3b6c-4550-896e-731788117506",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "X-Request-Id",
+                "value": "{{$guid}}",
+                "type": "text"
+              },
+              {
+                "key": "X-Destination-Service",
+                "value": "transfers",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Id",
+                "value": "1234",
+                "type": "text"
+              },
+              {
+                "key": "X-Integration-Key",
+                "value": "5678",
+                "type": "text"
+              },
+              {
+                "key": "X-Cache-Key",
+                "value": "ad1",
+                "type": "text"
+              },
+              {
+                "key": "Cache-Control",
+                "value": "max-age=0",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"action\": \"post-batch\",\r\n    \"batch_reference\" : \"82b34573-a445\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base-url}}/api/v1/service-request",
+              "host": [
+                "{{base-url}}"
+              ],
+              "path": [
+                "api",
+                "v1",
+                "service-request"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "id": "4d617494-aeb9-4221-9968-11bcbfe9e4ed"
+    }
+  ]
+}
