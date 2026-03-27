@@ -114,19 +114,21 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 
 ```json
 {
-    "request_id": "a46c452a-27a3-4f9d-bf42-1082fe88940c",
+    "request_id": "5cc562ff-90d2-4ea2-b32a-64bba73a9c80",
     "action": "get-account-details",
     "account": {
-        "account_number": "500007903387",
+        "account_number": "500009432963",
         "status": "Active             ",
         "account_type": "FCA",
         "currency_iso_code": "USD",
-        "account_name": "RYAN BEN",
-        "branch_code": 100
+        "account_name": "MALCOM CHAKOMA",
+        "branch_code": 100,
+        "overdraft_amount": 19.0,
+        "masked_encrypted_card_number": "qrPs91pJUdPpGBjjipcOOQaSfKyPGDQHwX88gQPhxM7lIGR8SsQ1zlJzZnImkxWyLf5bBeFG0QkrE+AaiNbmqeNzO0gRjh6tcqPl0UbAEqpiRi+ooFAyBqHVI2Bc0AirTa48Dbk6WtXQ3FLMBctrgC09TemcUuVNnEQiO8Nvm+Pf1NBYJ2PtqGzOdw84e+7LqUch0evRU8C20KsisllYDv4gmIRYslZPBdSrH2SDzc0ApKXCFrS3nejHMMtCHY99+1BncLbpzxqgIJgfZxoKcroXAsy2g7agAA7sLJ40etSDHOthkvXYsaFBPde3smf4AYaEH/41gq40N6IG1a8faA=="
     },
     "message": "SUCCESS",
     "success": true,
-    "timestamp": "2026-02-10T10:47:13.0504732Z"
+    "timestamp": "2026-03-27T12:44:44.361432Z"
 }
 ```
 
