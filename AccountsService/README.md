@@ -8,7 +8,7 @@ The **API Gateway** serves as the single entry point for all requests to the Acc
 
 ### Responsibilities
 
-- **Routing:** Directs requests to the correct service (`accounts`) based on the `X-Destination-Service` header.  
+- **Routing:** Directs requests to the correct service (`dp-accounts`) based on the `X-Destination-Service` header.  
 - **Authentication & Authorization:** Validates `X-Integration-Id` and `X-Integration-Key` headers to ensure only authorized clients can access the service.  
 - **Caching:** Supports optional caching via the `X-Cache-Key` header to reduce load on internal services.  
 - **Request Logging:** Generates traceable logs using `X-Request-Id` for auditing and debugging.  
