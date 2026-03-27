@@ -97,7 +97,7 @@ This action retrieves detailed information about a specified account. The endpoi
 
 ```bash
 curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
---header 'X-Request-Id: 4dc8e184-5eb3-437b-a099-e74ffc75b807' \
+--header 'X-Request-Id: 777be247-1821-45f6-9244-535ca980ded2' \
 --header 'X-Destination-Service: dp-accounts' \
 --header 'X-Integration-Id: 1234' \
 --header 'X-Integration-Key: 5678' \
@@ -105,8 +105,8 @@ curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 --header 'Cache-Control: no-cache' \
 --header 'Content-Type: application/json' \
 --data '{
-   "action" : "balance-enquiry",
-   "account_number" : "500007903387"
+    "action": "get-account-details",
+    "account_number" : "500009432963"
 }'
 ```
 
