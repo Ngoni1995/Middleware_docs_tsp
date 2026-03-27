@@ -19,7 +19,7 @@ The **API Gateway** serves as the single entry point for all requests to the Acc
 | Header Name             | Description                                          |
 |-------------------------|------------------------------------------------------|
 | `X-Request-Id`          | Unique request identifier for tracing                |
-| `X-Destination-Service` | Target service (must be `accounts`)                 |
+| `X-Destination-Service` | Target service (must be `dp-accounts`)                 |
 | `X-Integration-Id`      | Client integration identifier                        |
 | `X-Integration-Key`     | Client integration key                               |
 | `X-Cache-Key`           | Optional cache key                                   |
