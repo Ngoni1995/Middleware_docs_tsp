@@ -1,6 +1,6 @@
 # 💳 Accounts Service API Documentation
 
-The **Accounts Service** handles account-related queries such as balance enquiries, account lookup, and other account operations. All requests are routed through the **Service Request API**.
+The **DP Accounts Service** handles account-related queries such as balance enquiries, account lookup, and other account operations. All requests are routed through the **Service Request API**.
 
 ## 🚪 Entry Point - API Gateway
 
@@ -31,7 +31,7 @@ The **API Gateway** serves as the single entry point for all requests to the Acc
 ```bash
 curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 --header 'X-Request-Id: 2215032c-9b50-4168-8183-0ff3bb53d52e' \
---header 'X-Destination-Service: accounts' \
+--header 'X-Destination-Service: dp-accounts' \
 --header 'X-Integration-Id: 1234' \
 --header 'X-Integration-Key: 5678' \
 --header 'X-Cache-Key: ad1' \
@@ -65,7 +65,7 @@ This action retrieves the current available balance for a specified account. The
 ```bash
 curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 --header 'X-Request-Id: 4dc8e184-5eb3-437b-a099-e74ffc75b807' \
---header 'X-Destination-Service: accounts' \
+--header 'X-Destination-Service: dp-accounts' \
 --header 'X-Integration-Id: 1234' \
 --header 'X-Integration-Key: 5678' \
 --header 'X-Cache-Key: ad1' \
@@ -98,7 +98,7 @@ This action retrieves detailed information about a specified account. The endpoi
 ```bash
 curl --location 'http://10.50.30.217:8070/api/v1/service-request' \
 --header 'X-Request-Id: 4dc8e184-5eb3-437b-a099-e74ffc75b807' \
---header 'X-Destination-Service: accounts' \
+--header 'X-Destination-Service: dp-accounts' \
 --header 'X-Integration-Id: 1234' \
 --header 'X-Integration-Key: 5678' \
 --header 'X-Cache-Key: ad1' \
